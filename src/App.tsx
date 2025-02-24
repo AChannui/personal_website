@@ -1,12 +1,10 @@
-// src/App.js
 import React from "react";
 import "./index.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/NavbarComponent"; // Ensure Navbar is imported correctly
 import Header from "./components/HeaderComponent";
 import About from "./components/AboutSection";
-import TechnicalSkills from "./components/TechnicalSkillsSection";
-import Projects from "./components/ProjectsSection";
+import PortfolioIntegration from "./components/PortfolioIntegration"; // Use the combined component
 import Contact from "./components/ContactForm";
 
 const App = () => {
@@ -15,8 +13,7 @@ const App = () => {
       <Navbar /> {/* Render Navbar at the top */}
       <Header />
       <About />
-      <TechnicalSkills />
-      <Projects />
+      <PortfolioIntegration /> {/* Integrates Projects and TechnicalSkills */}
       <Contact />
     </div>
   );
