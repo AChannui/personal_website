@@ -1,97 +1,101 @@
 import React from "react";
+import {
+    FaPython,
+    FaDatabase,
+    FaLinux,
+    FaJava,
+    FaGitAlt,
+    FaDocker,
+    FaHtml5,
+    FaWindows,
+    FaNetworkWired,
+} from "react-icons/fa";
+import {SiMysql, SiSqlite, SiGnubash, SiJetbrains, SiVim, SiCplusplus, SiRacket, SiVirtualbox, SiMacos} from "react-icons/si";
+import {BsRegex} from "react-icons/bs";
+import {TfiLayoutPlaceholder} from "react-icons/tfi";
 
-const TechnicalSkills = ({ hoveredProject }) => {
-  const programmingLanguages = [
-    { name: "Python", img: "https://via.placeholder.com/50?text=Python" },
-    { name: "SQL", img: "https://via.placeholder.com/50?text=SQL" },
-    { name: "SQLite", img: "https://via.placeholder.com/50?text=SQLite" },
-    { name: "MySQL", img: "https://via.placeholder.com/50?text=MySQL" },
-    { name: "C", img: "https://via.placeholder.com/50?text=C" },
-    { name: "Bash", img: "https://via.placeholder.com/50?text=Bash" },
-    { name: "Java", img: "https://via.placeholder.com/50?text=Java" },
-    { name: "Racket", img: "https://via.placeholder.com/50?text=Racket" },
-    { name: "Assembly (MIPS)", img: "https://via.placeholder.com/50?text=ASM" },
-    { name: "HTML", img: "https://via.placeholder.com/50?text=HTML" },
-  ];
+const TechnicalSkills = ({hoveredProject}) => {
+    // Programming Languages Array
+    const programmingLanguages = [
+        {name: "Python", icon: <FaPython size={50}/>},
+        {name: "SQL", icon: <FaDatabase size={50}/>},
+        {name: "SQLite", icon: <SiSqlite size={50}/>},
+        {name: "MySQL", icon: <SiMysql size={50}/>},
+        {name: "C++", icon: <SiCplusplus size={50}/>},
+        {name: "Bash", icon: <SiGnubash size={50}/>},
+        {name: "Java", icon: <FaJava size={50}/>},
+        {name: "Racket", icon: <SiRacket size={50}/>},
+        {name: "Assembly (MIPS)", icon: <TfiLayoutPlaceholder size={50}/>},
+        {name: "HTML", icon: <FaHtml5 size={50}/>},
+    ];
 
-  const otherSkills = [
-    { name: "Windows Development", img: "https://via.placeholder.com/50?text=Windows" },
-    { name: "MacOS Development", img: "https://via.placeholder.com/50?text=MacOS" },
-    { name: "Linux Development", img: "https://via.placeholder.com/50?text=Linux" },
-    { name: "Vim", img: "https://via.placeholder.com/50?text=Vim" },
-    { name: "Regex", img: "https://via.placeholder.com/50?text=Regex" },
-    { name: "Fundamental TCP/IP", img: "https://via.placeholder.com/50?text=TCP/IP" },
-    { name: "OpenSuse", img: "https://via.placeholder.com/50?text=OpenSuse" },
-    { name: "Git", img: "https://via.placeholder.com/50?text=Git" },
-    { name: "JetBrains IDE", img: "https://via.placeholder.com/50?text=JetBrains" },
-    { name: "Docker", img: "https://via.placeholder.com/50?text=Docker" },
-    { name: "VirtualBox", img: "https://via.placeholder.com/50?text=VirtualBox" },
-  ];
+    // Other Skills Array
+    const otherSkills = [
+        {name: "Windows Development", icon: <FaWindows size={50}/>},
+        {name: "macOS Development", icon: <SiMacos size={50}/>},
+        {name: "Linux Development", icon: <FaLinux size={50}/>},
+        {name: "Vim", icon: <SiVim size={50}/>},
+        {name: "Regex", icon: <BsRegex size={50}/>},
+        {name: "JetBrains IDE", icon: <SiJetbrains size={50}/>},
+        {name: "Fundamental TCP/IP", icon: <FaNetworkWired size={50}/>},
+        {name: "Git", icon: <FaGitAlt size={50}/>},
+        {name: "Docker", icon: <FaDocker size={50}/>},
+        {name: "VirtualBox", icon: <SiVirtualbox size={50}/>},
+    ];
 
-  // Helper function to check if a skill is relevant to the hovered project
-  const isRelevantSkill = (skill) =>
-    hoveredProject?.technologies?.includes(skill.name);
+    // Helper function to check if skill is relevant to the hovered project
+    const isRelevantSkill = (skill) =>
+        hoveredProject?.technologies?.includes(skill.name);
 
-  return (
-    <section id="technical-skills" className="py-5 bg-light">
-      <div className="container">
-        <h2 className="text-center">Technical Skills</h2>
-        <div className="row mt-4">
-          {/* Programming Languages Section */}
-          <div className="col-12 mb-4">
-            <h4 className="text-center">Programming Languages</h4>
-            <div className="d-flex flex-wrap justify-content-center">
-              {programmingLanguages.map((skill, index) => (
-                <div
-                  key={index}
-                  className="skill-card text-center mx-3 my-2"
-                  style={{
-                    transform: isRelevantSkill(skill) ? "scale(1.2)" : "scale(1)",
-                    opacity: isRelevantSkill(skill) || !hoveredProject ? 1 : 0.4,
-                    transition: "transform 0.3s ease, opacity 0.3s ease",
-                  }}
-                >
-                  <img
-                    src={skill.img}
-                    alt={skill.name}
-                    className="img-fluid rounded-circle mb-2"
-                    style={{ width: "50px", height: "50px" }}
-                  />
-                  <p>{skill.name}</p>
+    return (
+        <section id="technical-skills" className="py-5 bg-light">
+            <div className="container">
+                <h2 className="text-center">Technical Skills</h2>
+
+                {/* Programming Languages Section */}
+                <div className="row mt-4">
+                    <div className="col-12 mb-4">
+                        <h4 className="text-center">Programming Languages</h4>
+                        <div className="d-flex flex-wrap justify-content-center">
+                            {programmingLanguages.map((skill, index) => (
+                                <div
+                                    key={index}
+                                    className="skill-card text-center mx-3 my-2"
+                                    style={{
+                                        transform: isRelevantSkill(skill) ? "scale(1.2)" : "scale(1)",
+                                        opacity: isRelevantSkill(skill) || !hoveredProject ? 1 : 0.4,
+                                    }}
+                                >
+                                    <div className="icon mb-2">{skill.icon}</div>
+                                    <p>{skill.name}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Other Skills Section */}
+                    <div className="col-12">
+                        <h4 className="text-center">Other Skills</h4>
+                        <div className="d-flex flex-wrap justify-content-center">
+                            {otherSkills.map((skill, index) => (
+                                <div
+                                    key={index}
+                                    className="skill-card text-center mx-3 my-2"
+                                    style={{
+                                        transform: isRelevantSkill(skill) ? "scale(1.2)" : "scale(1)",
+                                        opacity: isRelevantSkill(skill) || !hoveredProject ? 1 : 0.4,
+                                    }}
+                                >
+                                    <div className="icon mb-2">{skill.icon}</div>
+                                    <p>{skill.name}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
-              ))}
             </div>
-          </div>
-
-          {/* Other Skills Section */}
-          <div className="col-12">
-            <h4 className="text-center">Other Skills</h4>
-            <div className="d-flex flex-wrap justify-content-center">
-              {otherSkills.map((skill, index) => (
-                <div
-                  key={index}
-                  className="skill-card text-center mx-3 my-2"
-                  style={{
-                    transform: isRelevantSkill(skill) ? "scale(1.2)" : "scale(1)",
-                    opacity: isRelevantSkill(skill) || !hoveredProject ? 1 : 0.4,
-                    transition: "transform 0.3s ease, opacity 0.3s ease",
-                  }}
-                >
-                  <img
-                    src={skill.img}
-                    alt={skill.name}
-                    className="img-fluid rounded-circle mb-2"
-                    style={{ width: "50px", height: "50px" }}
-                  />
-                  <p>{skill.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 
 export default TechnicalSkills;
