@@ -1,0 +1,59 @@
+/* Header Section */
+.header-section {
+    background: url('photo/Beach.JPEG') no-repeat center center; /* Add your background image */
+    background-size: cover; /* Ensures the image resizes proportionally to fill the space */
+    background-attachment: fixed; /* Makes the background image stay static */
+    padding: 150px 20px; /* Adds spacing for content */
+    text-align: center;
+    color: white;
+    height: 100vh; /* Full height of the viewport */
+    position: relative;
+    overflow: hidden; /* Ensures no extra content spills */
+}
+
+/* Overlay for readability */
+.header-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better contrast with content */
+    z-index: 0;
+}
+
+/* Content centering */
+.container {
+    position: relative;
+    z-index: 1; /* Places the text and button above the overlay */
+    text-align: center;
+}
+
+/* Title alignment and styling */
+.header-title {
+    font-size: 3.5rem; /* Larger title for emphasis */
+    font-weight: 700;
+    margin: 20px 0;
+    word-wrap: break-word; /* Prevents long text from overflowing */
+}
+
+/* Subtitle styling */
+.header-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+    color: #e0e4eb; /* Soft, subtle matching color */
+}
+
+/* Call-to-action button */
+.header-btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+}
+
+.header-btn:hover {
+    transform: translateY(-3px); /* Subtle hover lift effect */
+    box-shadow: 0 8px 15px rgba(255, 255, 255, 0.2); /* Adds a hover shadow for the button */
+}

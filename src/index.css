@@ -73,6 +73,7 @@ code {
 
 /* Highlight relevant skill cards */
 .skill-card {
+    cursor: default;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -131,4 +132,3 @@ code {
 .navbar .navbar-brand:hover {
     color: #20C997;
 }
-
