@@ -3,6 +3,7 @@ import React, {useState} from "react";
 const Projects = ({setHoveredProject, hoveredSkill}) => {
     const [activeProject, setActiveProject] = useState(null); // Track the project in the side window
     const [isSideWindowVisible, setIsSideWindowVisible] = useState(false); // Control side window visibility
+    const [hoveredProjectIndex, setHoveredProjectIndex] = useState(null); // Track the index of the hovered project
 
     const projects = [
         {
@@ -29,7 +30,7 @@ const Projects = ({setHoveredProject, hoveredSkill}) => {
     ];
 
     const isRelevantProject = (project) =>
-        hoveredSkill && project.technologies.includes(hoveredSkill); // Check if project uses the hovered skill
+        hoveredSkill && project.technologies.includes(hoveredSkill); // Check if project is relevant to hovered skill
 
     // Handle opening the side window
     const handleProjectClick = (project) => {
@@ -51,17 +52,39 @@ const Projects = ({setHoveredProject, hoveredSkill}) => {
                         <div
                             className="col-md-4 text-center"
                             key={index}
-                            onMouseEnter={() => setHoveredProject(project)}
-                            onMouseLeave={() => setHoveredProject(null)}
+                            onMouseEnter={() => {
+                                setHoveredProject(project);
+                                setHoveredProjectIndex(index); // Set the index of the hovered project
+                            }}
+                            onMouseLeave={() => {
+                                setHoveredProject(null);
+                                setHoveredProjectIndex(null); // Reset the hovered project index
+                            }}
+                            style={{
+                                opacity:
+                                    hoveredSkill && !isRelevantProject(project) ? 0.4 : 1, // Grey out non-relevant projects when a skill is hovered
+                                transform:
+                                    isRelevantProject(project) || index === hoveredProjectIndex
+                                        ? "scale(1.05)" // Scale if relevant or hovered
+                                        : "scale(1)", // Default scale
+                                transition: "opacity 0.3s ease, transform 0.3s ease", // Smooth transition for opacity and scale
+                            }}
                         >
                             <div
                                 className="project-card p-4 rounded"
                                 style={{
-                                    backgroundColor: isRelevantProject(project) ? "#e0f7fa" : "#f5f5f5", // Highlight if relevant
+                                    backgroundColor:
+                                        hoveredSkill && isRelevantProject(project)
+                                            ? "#e0f7fa"
+                                            : index === hoveredProjectIndex
+                                                ? "#f0f8ff" // Highlight color for hovered projects
+                                                : "#f5f5f5", // Default color
                                     color: "#333",
-                                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                                    transform: isRelevantProject(project) ? "scale(1.05)" : "scale(1)", // Slightly enlarge on hover relevance
-                                    transition: "transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease",
+                                    boxShadow:
+                                        index === hoveredProjectIndex
+                                            ? "0 6px 12px rgba(0, 0, 0, 0.2)" // Enhanced shadow for hovered
+                                            : "0 4px 6px rgba(0, 0, 0, 0.1)", // Default shadow
+                                    cursor: "pointer", // Clickable projects
                                 }}
                                 onClick={() => handleProjectClick(project)} // Open side window on click
                             >
@@ -109,26 +132,16 @@ const Projects = ({setHoveredProject, hoveredSkill}) => {
                             src={activeProject.img}
                             alt={activeProject.title}
                             className="img-fluid mb-3 rounded"
-                            style={{border: "2px solid #ddd"}}
                         />
-                        {/* Project Title */}
-                        <h3>{activeProject.title}</h3>
-                        {/* Project Description */}
+                        <h2>{activeProject.title}</h2>
                         <p>{activeProject.description}</p>
-                        {/* Project Technologies */}
-                        <ul>
-                            {activeProject.technologies.map((tech, idx) => (
-                                <li key={idx}>{tech}</li>
-                            ))}
-                        </ul>
-                        {/* Project Link */}
                         <a
                             href={activeProject.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn btn-primary mt-3"
+                            className="btn btn-primary"
                         >
-                            View on GitHub
+                            View Project
                         </a>
                     </div>
                 )}

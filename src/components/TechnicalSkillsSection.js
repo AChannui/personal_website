@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
     FaPython,
     FaDatabase,
@@ -25,6 +25,8 @@ import {BsRegex} from "react-icons/bs";
 import {TfiLayoutPlaceholder} from "react-icons/tfi";
 
 const TechnicalSkills = ({hoveredProject, setHoveredSkill}) => {
+    const [hoveredSkillIndex, setHoveredSkillIndex] = useState(null); // Track which skill is hovered
+
     const programmingLanguages = [
         {name: "Python", icon: <FaPython size={50}/>},
         {name: "SQL", icon: <FaDatabase size={50}/>},
@@ -52,7 +54,7 @@ const TechnicalSkills = ({hoveredProject, setHoveredSkill}) => {
     ];
 
     const isRelevantSkill = (skill) =>
-        hoveredProject?.technologies?.includes(skill.name);
+        hoveredProject?.technologies?.includes(skill.name); // Check if skill is relevant to the hovered project
 
     return (
         <section id="technical-skills" className="py-5 bg-light">
@@ -68,12 +70,31 @@ const TechnicalSkills = ({hoveredProject, setHoveredSkill}) => {
                                 <div
                                     key={index}
                                     className="skill-card text-center mx-3 my-2"
-                                    style={{
-                                        transform: isRelevantSkill(skill) ? "scale(1.2)" : "scale(1)",
-                                        opacity: isRelevantSkill(skill) || !hoveredProject ? 1 : 0.4,
+                                    onMouseEnter={() => {
+                                        setHoveredSkill(skill.name); // Set skill as hovered
+                                        setHoveredSkillIndex(index); // Track current hovered skill
                                     }}
-                                    onMouseEnter={() => setHoveredSkill(skill.name)}
-                                    onMouseLeave={() => setHoveredSkill(null)}
+                                    onMouseLeave={() => {
+                                        setHoveredSkill(null); // Clear hovered skill
+                                        setHoveredSkillIndex(null); // Reset hover tracking
+                                    }}
+                                    style={{
+                                        transform:
+                                            isRelevantSkill(skill) || index === hoveredSkillIndex
+                                                ? "scale(1.1)" // Scale up if relevant or hovered
+                                                : "scale(1)", // Default scale
+                                        opacity:
+                                            hoveredProject && !isRelevantSkill(skill) ? 0.4 : 1, // Grey out irrelevant skills when a project is hovered
+                                        borderRadius: "12px", // Round skill boxes
+                                        backgroundColor: "transparent", // No background color change
+                                        boxShadow:
+                                            index === hoveredSkillIndex
+                                                ? "0 6px 12px rgba(0, 0, 0, 0.2)" // Enhanced shadow for hovered
+                                                : "0 4px 6px rgba(0, 0, 0, 0.1)", // Default shadow
+                                        padding: "10px", // Optional: Add padding for better spacing
+                                        transition:
+                                            "transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease", // Smooth transitions
+                                    }}
                                 >
                                     <div className="icon mb-2">{skill.icon}</div>
                                     <p>{skill.name}</p>
@@ -90,12 +111,34 @@ const TechnicalSkills = ({hoveredProject, setHoveredSkill}) => {
                                 <div
                                     key={index}
                                     className="skill-card text-center mx-3 my-2"
-                                    style={{
-                                        transform: isRelevantSkill(skill) ? "scale(1.2)" : "scale(1)",
-                                        opacity: isRelevantSkill(skill) || !hoveredProject ? 1 : 0.4,
+                                    onMouseEnter={() => {
+                                        setHoveredSkill(skill.name); // Set skill as hovered
+                                        setHoveredSkillIndex(index + programmingLanguages.length); // Adjust index for "other skills" section
                                     }}
-                                    onMouseEnter={() => setHoveredSkill(skill.name)}
-                                    onMouseLeave={() => setHoveredSkill(null)}
+                                    onMouseLeave={() => {
+                                        setHoveredSkill(null); // Clear hovered skill
+                                        setHoveredSkillIndex(null); // Reset hover tracking
+                                    }}
+                                    style={{
+                                        transform:
+                                            isRelevantSkill(skill) ||
+                                            index + programmingLanguages.length ===
+                                            hoveredSkillIndex
+                                                ? "scale(1.1)" // Scale up if relevant or hovered
+                                                : "scale(1)", // Default scale
+                                        opacity:
+                                            hoveredProject && !isRelevantSkill(skill) ? 0.4 : 1, // Grey out irrelevant skills when a project is hovered
+                                        borderRadius: "12px", // Round skill boxes
+                                        backgroundColor: "transparent", // No background color change
+                                        boxShadow:
+                                            index + programmingLanguages.length ===
+                                            hoveredSkillIndex
+                                                ? "0 6px 12px rgba(0, 0, 0, 0.2)" // Enhanced shadow for hovered
+                                                : "0 4px 6px rgba(0, 0, 0, 0.1)", // Default shadow
+                                        padding: "10px", // Optional: Add padding for better spacing
+                                        transition:
+                                            "transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease", // Smooth transitions
+                                    }}
                                 >
                                     <div className="icon mb-2">{skill.icon}</div>
                                     <p>{skill.name}</p>
