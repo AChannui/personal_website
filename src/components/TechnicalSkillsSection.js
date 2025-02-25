@@ -10,12 +10,21 @@ import {
     FaWindows,
     FaNetworkWired,
 } from "react-icons/fa";
-import {SiMysql, SiSqlite, SiGnubash, SiJetbrains, SiVim, SiCplusplus, SiRacket, SiVirtualbox, SiMacos} from "react-icons/si";
+import {
+    SiMysql,
+    SiSqlite,
+    SiGnubash,
+    SiJetbrains,
+    SiVim,
+    SiCplusplus,
+    SiRacket,
+    SiVirtualbox,
+    SiMacos,
+} from "react-icons/si";
 import {BsRegex} from "react-icons/bs";
 import {TfiLayoutPlaceholder} from "react-icons/tfi";
 
-const TechnicalSkills = ({hoveredProject}) => {
-    // Programming Languages Array
+const TechnicalSkills = ({hoveredProject, setHoveredSkill}) => {
     const programmingLanguages = [
         {name: "Python", icon: <FaPython size={50}/>},
         {name: "SQL", icon: <FaDatabase size={50}/>},
@@ -29,7 +38,6 @@ const TechnicalSkills = ({hoveredProject}) => {
         {name: "HTML", icon: <FaHtml5 size={50}/>},
     ];
 
-    // Other Skills Array
     const otherSkills = [
         {name: "Windows Development", icon: <FaWindows size={50}/>},
         {name: "macOS Development", icon: <SiMacos size={50}/>},
@@ -43,7 +51,6 @@ const TechnicalSkills = ({hoveredProject}) => {
         {name: "VirtualBox", icon: <SiVirtualbox size={50}/>},
     ];
 
-    // Helper function to check if skill is relevant to the hovered project
     const isRelevantSkill = (skill) =>
         hoveredProject?.technologies?.includes(skill.name);
 
@@ -65,6 +72,8 @@ const TechnicalSkills = ({hoveredProject}) => {
                                         transform: isRelevantSkill(skill) ? "scale(1.2)" : "scale(1)",
                                         opacity: isRelevantSkill(skill) || !hoveredProject ? 1 : 0.4,
                                     }}
+                                    onMouseEnter={() => setHoveredSkill(skill.name)}
+                                    onMouseLeave={() => setHoveredSkill(null)}
                                 >
                                     <div className="icon mb-2">{skill.icon}</div>
                                     <p>{skill.name}</p>
@@ -85,6 +94,8 @@ const TechnicalSkills = ({hoveredProject}) => {
                                         transform: isRelevantSkill(skill) ? "scale(1.2)" : "scale(1)",
                                         opacity: isRelevantSkill(skill) || !hoveredProject ? 1 : 0.4,
                                     }}
+                                    onMouseEnter={() => setHoveredSkill(skill.name)}
+                                    onMouseLeave={() => setHoveredSkill(null)}
                                 >
                                     <div className="icon mb-2">{skill.icon}</div>
                                     <p>{skill.name}</p>

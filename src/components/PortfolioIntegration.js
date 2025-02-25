@@ -4,13 +4,13 @@ import TechnicalSkills from "./TechnicalSkillsSection";
 
 const Portfolio = () => {
     const [hoveredProject, setHoveredProject] = useState(null); // State for hovered project
+    const [hoveredSkill, setHoveredSkill] = useState(null); // State for hovered skill
 
     return (
         <div>
-            {/* Pass active hovered project to TechnicalSkills */}
-            <TechnicalSkills hoveredProject={hoveredProject}/>
-            {/* Pass hover state handlers to Projects */}
-            <Projects setHoveredProject={setHoveredProject}/>
+            {/* Pass states to child components */}
+            <TechnicalSkills hoveredProject={hoveredProject} setHoveredSkill={setHoveredSkill}/>
+            <Projects setHoveredProject={setHoveredProject} hoveredSkill={hoveredSkill}/>
         </div>
     );
 };

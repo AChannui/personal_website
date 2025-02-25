@@ -14,25 +14,25 @@ code {
 
 /* Side window styling with animation */
 .side-window {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 400px;
-  height: 100%;
-  background-color: #ffffff;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 1050;
-  padding: 20px;
-  transition: transform 0.4s ease-in-out; /* Smooth animation */
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  transform: translateX(100%); /* Start off-screen */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1050;
+    padding: 20px;
+    transition: transform 0.4s ease-in-out; /* Smooth animation */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    transform: translateX(100%); /* Start off-screen */
 }
 
 /* When side window is visible, slide in */
 .side-window.show {
-  transform: translateX(0); /* Slide in */
+    transform: translateX(0); /* Slide in */
 }
 
 
@@ -62,12 +62,14 @@ code {
 .project-card {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Change cursor to pointer */
 }
 
 .project-card:hover {
     transform: scale(1.05); /* Add scaling effect */
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
 }
+
 
 /* Highlight relevant skill cards */
 .skill-card {
@@ -77,6 +79,11 @@ code {
 .skill-card img {
     transition: border 0.3s ease;
 }
+
+.skill-card:hover {
+    transform: scale(1.1); /* Slightly bigger on hover */
+}
+
 
 /* Close button hover effect */
 .close-btn:hover {
@@ -117,9 +124,10 @@ code {
     transition: color 0.3s ease;
 }
 
-.navbar .nav-link:hover{
+.navbar .nav-link:hover {
     color: #20C997; /* Neutral gray-blue for hover effect */
 }
+
 .navbar .navbar-brand:hover {
     color: #20C997;
 }

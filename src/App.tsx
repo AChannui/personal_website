@@ -8,15 +8,15 @@ import PortfolioIntegration from "./components/PortfolioIntegration"; // Use the
 import Contact from "./components/ContactInfo";
 
 const App = () => {
-  return (
-    <div>
-      <Navbar /> {/* Render Navbar at the top */}
-      <Header />
-      <About />
-      <PortfolioIntegration /> {/* Integrates Projects and TechnicalSkills */}
-      <Contact />
-    </div>
-  );
+    return (
+        <div>
+            <Navbar/> {/* Render Navbar at the top */}
+            <Header/>
+            <About/>
+            <PortfolioIntegration/> {/* Integrates Projects and TechnicalSkills */}
+            <Contact/>
+        </div>
+    );
 };
 
 export default App;
