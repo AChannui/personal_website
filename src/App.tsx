@@ -5,7 +5,7 @@ import Navbar from "./components/NavbarComponent"; // Ensure Navbar is imported 
 import Header from "./components/HeaderComponent";
 import About from "./components/AboutSection";
 import PortfolioIntegration from "./components/PortfolioIntegration"; // Use the combined component
-import Contact from "./components/ContactForm";
+import Contact from "./components/ContactInfo";
 
 const App = () => {
   return (

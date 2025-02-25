@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Projects from "./ProjectsSection";
 import TechnicalSkills from "./TechnicalSkillsSection";
 
 const Portfolio = () => {
-  const [hoveredProject, setHoveredProject] = useState(null); // State for hovered project
+    const [hoveredProject, setHoveredProject] = useState(null); // State for hovered project
 
-  return (
-    <div>
-      {/* Pass state handlers to Projects */}
-      <Projects setHoveredProject={setHoveredProject} />
-      {/* Pass hoveredProject to TechnicalSkills */}
-      <TechnicalSkills hoveredProject={hoveredProject} />
-    </div>
-  );
+    return (
+        <div>
+            {/* Pass active hovered project to TechnicalSkills */}
+            <TechnicalSkills hoveredProject={hoveredProject}/>
+            {/* Pass hover state handlers to Projects */}
+            <Projects setHoveredProject={setHoveredProject}/>
+        </div>
+    );
 };
 
 export default Portfolio;
