@@ -90,7 +90,7 @@ const TechnicalSkills = ({hoveredProject, setHoveredSkill}) => {
                                         boxShadow:
                                             index === hoveredSkillIndex
                                                 ? "0 6px 12px rgba(0, 0, 0, 0.2)" // Enhanced shadow for hovered
-                                                : "0 4px 6px rgba(0, 0, 0, 0.1)", // Default shadow
+                                                : "none", // Default shadow
                                         padding: "10px", // Optional: Add padding for better spacing
                                         transition:
                                             "transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease", // Smooth transitions
@@ -134,7 +134,7 @@ const TechnicalSkills = ({hoveredProject, setHoveredSkill}) => {
                                             index + programmingLanguages.length ===
                                             hoveredSkillIndex
                                                 ? "0 6px 12px rgba(0, 0, 0, 0.2)" // Enhanced shadow for hovered
-                                                : "0 4px 6px rgba(0, 0, 0, 0.1)", // Default shadow
+                                                : "none", // Default shadow
                                         padding: "10px", // Optional: Add padding for better spacing
                                         transition:
                                             "transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease", // Smooth transitions

@@ -6,7 +6,7 @@
     padding: 150px 20px; /* Adds spacing for content */
     text-align: center;
     color: white;
-    height: 100vh; /* Full height of the viewport */
+    height: 80vh; /* Full height of the viewport */
     position: relative;
     overflow: hidden; /* Ensures no extra content spills */
 }

@@ -126,9 +126,9 @@ code {
 }
 
 .navbar .nav-link:hover {
-    color: #20C997; /* Neutral gray-blue for hover effect */
+    color: #828282;
 }
 
 .navbar .navbar-brand:hover {
-    color: #20C997;
+    color: #828282;
 }
