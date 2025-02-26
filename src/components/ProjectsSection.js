@@ -64,7 +64,7 @@ const Projects = ({setHoveredProject, hoveredSkill}) => {
                                 opacity:
                                     hoveredSkill && !isRelevantProject(project) ? 0.4 : 1, // Grey out non-relevant projects when a skill is hovered
                                 transform:
-                                    isRelevantProject(project) || index === hoveredProjectIndex
+                                    index === hoveredProjectIndex
                                         ? "scale(1.05)" // Scale if relevant or hovered
                                         : "scale(1)", // Default scale
                                 transition: "opacity 0.3s ease, transform 0.3s ease", // Smooth transition for opacity and scale
@@ -75,7 +75,7 @@ const Projects = ({setHoveredProject, hoveredSkill}) => {
                                 style={{
                                     backgroundColor:
                                         hoveredSkill && isRelevantProject(project)
-                                            ? "#e0f7fa"
+                                            ? "#f0f8ff"
                                             : index === hoveredProjectIndex
                                                 ? "#f0f8ff" // Highlight color for hovered projects
                                                 : "#f5f5f5", // Default color

@@ -59,6 +59,11 @@ code {
 }
 
 /* CSS for project cards */
+#projects {
+  padding: 50px 0;
+  background-color: #ffffff !important; /* White background */
+}
+
 .project-card {
     box-shadow: 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
@@ -131,4 +136,107 @@ code {
 
 .navbar .navbar-brand:hover {
     color: #828282;
+}
+
+/* Timeline Section */
+.timeline {
+    position: relative;
+    padding: 20px 0;
+    margin: 50px 0;
+}
+
+.timeline:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: #000;
+    z-index: 0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding: 20px;
+    width: 45%;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.timeline-left {
+    left: 0;
+}
+
+.timeline-right {
+    left: 55%; /* Push the right side away from the center line */
+}
+
+.timeline-left .timeline-content,
+.timeline-right .timeline-content {
+    text-align: left; /* Both sides have consistent text alignment */
+}
+
+.timeline-left:before,
+.timeline-right:before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #000;
+    z-index: 2;
+}
+
+.timeline-left:before {
+    right: -20px; /* Position the left marker just to the right of the left box */
+}
+
+.timeline-right:before {
+    left: -20px; /* Position the right marker just to the left of the right box */
+}
+
+.position {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.company {
+    font-style: italic;
+    color: #777;
+}
+
+.duration {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Responsive Design for Mobile Screens */
+@media (max-width: 768px) {
+    .timeline:before {
+        left: 10%; /* Center line adjusts for smaller screens */
+    }
+
+    .timeline-item {
+        width: 90%; /* Full width timeline items */
+        left: 5% !important; /* Push left and right to the center */
+    }
+
+    .timeline-left:before,
+    .timeline-right:before {
+        left: calc(50% - 6px); /* Center the bubbles on the line */
+    }
+
+    .timeline-left,
+    .timeline-right {
+        left: 5% !important; /* Align left and right items properly for smaller screens */
+    }
+
+    .timeline-content {
+        text-align: left; /* Keep content consistent on smaller viewports */
+    }
 }

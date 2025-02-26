@@ -6,6 +6,7 @@ import Header from "./components/HeaderComponent";
 import About from "./components/AboutSection";
 import PortfolioIntegration from "./components/PortfolioIntegration"; // Use the combined component
 import Contact from "./components/ContactInfo";
+import WorkExperienceTimeline from "./components/WorkExperienceTimeline";
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
             <Header/>
             <About/>
             <PortfolioIntegration/> {/* Integrates Projects and TechnicalSkills */}
+            <WorkExperienceTimeline/>
             <Contact/>
         </div>
     );
