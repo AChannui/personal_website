@@ -12,6 +12,137 @@ code {
     monospace;
 }
 
+/* Glassy effect for Navbar */
+.transparent, .scrolled {
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle navbar shadow */
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+
+.transparent {
+    background-color: rgba(255, 255, 255, 0.2); /* Light translucent background for glassy look */
+}
+
+
+.scrolled {
+    background-color: rgba(0, 0, 0, 0.8); /* Darker background on scroll */
+}
+
+
+/* Navbar - General styles */
+.navbar {
+    position: fixed; /* Navbar remains fixed at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Stretches across the full width */
+    z-index: 1000; /* Ensures it's above other content */
+    height: 60px; /* Navbar height */
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Navbar Links with Underline Animation */
+.navbar .nav-link {
+    position: relative;
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.85);
+    background: linear-gradient(to right, deepskyblue, white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    transition: background-position 0.4s ease, color 0.4s ease;
+}
+
+
+.navbar .nav-link::after {
+    content: ""; /* Pseudo-element for underline */
+    position: absolute;
+    bottom: 0px; /* Position below the text */
+    left: 0; /* Start from the left */
+    width: 0; /* Start with no width */
+    height: 2px; /* Thickness of the underline */
+    background-color: deepskyblue; /* Color of the underline */
+    transition: width 0.3s ease; /* Smooth underline animation */
+}
+
+.navbar .nav-link:hover {
+    background-position: -100% 0; /* Shift gradient on hover */
+    color: deepskyblue; /* Fallback for browsers without gradient clipping */
+}
+
+.navbar .nav-link:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+/* Navbar Brand with Underline Animation */
+.navbar .navbar-brand {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: relative;
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.85);
+    background: linear-gradient(to right, deepskyblue, white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    transition: background-position 0.4s ease, color 0.4s ease;
+}
+
+
+.navbar .navbar-brand::after {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Position underline directly below text */
+    left: 0;
+    width: 0;
+    height: 2px; /* Thickness of underline */
+    background-color: deepskyblue;
+    transition: width 0.3s ease;
+}
+
+.navbar .navbar-brand:hover {
+    background-position: -100% 0; /* Shift gradient on hover */
+    color: deepskyblue; /* Fallback for browsers without gradient clipping */
+}
+
+.navbar .navbar-brand:hover::after {
+    width: 100%; /* Expand underline on hover */
+}
+
+/* Skill Cards */
+.skill-card {
+    border-radius: 10px; /* Rounded edges */
+    background-color: rgba(255, 255, 255, 0.9); /* Frosted card */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Card shadow */
+    text-align: center;
+    padding: 20px;
+    width: 120px;
+    height: 120px;
+    margin: 0.5rem;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+.skill-card:hover {
+    background-color: deepskyblue; /* Highlight color */
+    transform: scale(1.1); /* Enlarge on hover */
+    box-shadow: 0px 8px 25px deepskyblue; /* Glow effect */
+}
+
+.skill-card img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+/* Close button hover effect */
+.close-btn:hover {
+    color: red; /* Highlight close button on hover */
+}
+
+
 /* Side window styling with animation */
 .side-window {
     position: fixed;
@@ -58,91 +189,74 @@ code {
     margin-bottom: 20px;
 }
 
-/* CSS for project cards */
-#projects {
-  padding: 50px 0;
-  background-color: #ffffff !important; /* White background */
-}
-
+/* Project Cards */
 .project-card {
-    box-shadow: 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-    cursor: pointer; /* Change cursor to pointer */
+    border-radius: 15px; /* Smooth card edges */
+    overflow: hidden; /* Ensures sharp edges on child images */
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-    transform: scale(1.05); /* Add scaling effect */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    transform: scale(1.05); /* Slight growth on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
 }
 
-
-/* Highlight relevant skill cards */
-.skill-card {
-    cursor: default;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+.project-card img {
+    border-radius: 15px 15px 0 0; /* Add curve to top of images */
+    transition: opacity 0.3s;
 }
 
-.skill-card img {
-    transition: border 0.3s ease;
+.project-card:hover img {
+    opacity: 0.9; /* Dims the image slightly on hover */
 }
 
-.skill-card:hover {
-    transform: scale(1.1); /* Slightly bigger on hover */
+/* Fade-in Animation */
+.project-card {
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
-
-/* Close button hover effect */
-.close-btn:hover {
-    color: red; /* Highlight close button on hover */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Transparent Navbar */
-.transparent {
-    background-color: rgba(0, 0, 0, 0); /* Fully transparent */
-    transition: background-color 0.5s ease; /* Smooth fade effect */
-    color: white;
+/* Timeline Items */
+.timeline-item {
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px 0;
+    transform: translateY(30px);
+    opacity: 0;
+    animation: slideIn 0.5s ease-out forwards;
 }
 
-/* Navbar with background when scrolled */
-.scrolled {
-    background-color: #000000; /* Fully opaque black background */
-    transition: background-color 0.5s ease; /* Smooth fade effect */
-    color: white;
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-/* Navbar - General styles */
-.navbar {
-    position: fixed; /* Navbar remains fixed at the top */
-    top: 0;
-    left: 0;
-    width: 100%; /* Stretches across the full width */
-    z-index: 1000; /* Ensures it's above other content */
-    height: 60px; /* Navbar height */
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-}
-
-/* Navbar Links */
-.navbar .navbar-brand,
-.navbar .nav-link {
-    color: white; /* Default link text color */
-    transition: color 0.3s ease;
-}
-
-.navbar .nav-link:hover {
-    color: #828282;
-}
-
-.navbar .navbar-brand:hover {
-    color: #828282;
-}
-
-/* Timeline Section */
-.timeline {
-    position: relative;
-    padding: 20px 0;
-    margin: 50px 0;
+/* Center timeline on small devices */
+@media screen and (max-width: 768px) {
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+    }
 }
 
 .timeline:before {
@@ -238,5 +352,39 @@ code {
 
     .timeline-content {
         text-align: left; /* Keep content consistent on smaller viewports */
+    }
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #000; /* Dark footer background */
+    color: #fff; /* White text */
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Links in Footer */
+.footer a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: deepskyblue; /* Golden hover color */
+}
+
+/* Contact Icons */
+.footer .d-flex a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer .d-flex {
+        flex-direction: column;
+        gap: 1rem;
     }
 }

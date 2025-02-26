@@ -27,7 +27,7 @@ const Navbar = () => {
         >
             <div className="container">
                 <a className="navbar-brand" href="#home">
-                    My Portfolio
+                    Alex
                 </a>
                 <button
                     className="navbar-toggler"
