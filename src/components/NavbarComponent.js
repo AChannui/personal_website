@@ -19,6 +19,18 @@ const Navbar = () => {
         };
     }, []);
 
+    const handleLinkClick = (e, targetId) => {
+        e.preventDefault(); // Prevent default anchor behavior
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            const offset = 60; // Adjust this offset to match the navbar height
+            const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+            window.scrollTo({
+                top: elementPosition - offset,
+                behavior: "smooth",
+            });
+        }
+    };
     return (
         <nav
             className={`navbar navbar-expand-lg ${
@@ -26,7 +38,11 @@ const Navbar = () => {
             } fixed-top`}
         >
             <div className="container">
-                <a className="navbar-brand" href="#home">
+                <a
+                    className="navbar-brand"
+                    href="#home"
+                    onClick={(e) => handleLinkClick(e, "#home")}
+                >
                     Alex
                 </a>
                 <button
@@ -43,27 +59,47 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto">
                         <li className="nav-item">
-                            <a className="nav-link" href="#about">
+                            <a
+                                className="nav-link"
+                                href="#about"
+                                onClick={(e) => handleLinkClick(e, "#about")}
+                            >
                                 About
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#technical-skills">
+                            <a
+                                className="nav-link"
+                                href="#technical-skills"
+                                onClick={(e) => handleLinkClick(e, "#technical-skills")}
+                            >
                                 Skills
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#projects">
+                            <a
+                                className="nav-link"
+                                href="#projects"
+                                onClick={(e) => handleLinkClick(e, "#projects")}
+                            >
                                 Projects
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#work-experience">
+                            <a
+                                className="nav-link"
+                                href="#work-experience"
+                                onClick={(e) => handleLinkClick(e, "#work-experience")}
+                            >
                                 Experience
                             </a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#contact">
+                            <a
+                                className="nav-link"
+                                href="#contact"
+                                onClick={(e) => handleLinkClick(e, "#contact")}
+                            >
                                 Contact
                             </a>
                         </li>
