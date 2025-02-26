@@ -30,19 +30,45 @@
     text-align: center;
 }
 
-/* Title Animation - Typewriter Effect */
+/* Header Title Styles */
 .header-title {
+    display: inline-block;
     font-family: 'Poppins', sans-serif;
     font-size: 4rem;
     font-weight: 800;
-    color: #ffffff;
+    color: white;
     text-transform: uppercase;
-    overflow: hidden;
-    border-right: 0.15em solid orange;
-    white-space: nowrap;
-    animation: typing 3s steps(40, end), blink 0.6s step-end infinite;
 }
 
+.header-title span {
+    opacity: 0;
+    display: inline-block; /* Inline-block to account for spaces */
+    margin-right: 0.25em; /* Adds spacing between words */
+    transform: translateY(20px); /* Start moved down */
+    animation: fadeMoveUp 1s ease forwards; /* Smooth fade-up animation */
+}
+
+.header-title span:last-child {
+    margin-right: 0; /* Avoid extra margin after the last word */
+}
+
+/* Stagger Animation */
+.header-title span:nth-child(1) { animation-delay: 0s; } /* First word */
+.header-title span:nth-child(2) { animation-delay: 0.2s; }
+.header-title span:nth-child(3) { animation-delay: 0.4s; }
+.header-title span:nth-child(4) { animation-delay: 0.6s; } /* Adjust for each word */
+
+/* Smooth fade and move-up keyframes */
+@keyframes fadeMoveUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Start slightly below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Move to original position */
+    }
+}
 
 /* Subtitle styling */
 .header-subtitle {
@@ -51,17 +77,6 @@
     margin-bottom: 40px;
     color: #e0e4eb; /* Soft, subtle matching color */
 }
-
-@keyframes typing {
-    from { width: 0 } /* Dynamic typing effect */
-    to { width: 100% }
-}
-
-@keyframes blink {
-    from, to { border-color: transparent }
-    50% { border-color: deepskyblue }
-}
-
 
 /* Header Buttons with Glow Effect */
 .header-btn {
