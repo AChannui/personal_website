@@ -113,85 +113,103 @@ code {
 }
 
 .contact-popup {
-    position: fixed; /* Anchored to the viewport */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; /* 100% of the viewport width */
-    height: 100vh; /* 100% of the viewport height */
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
-    z-index: 2000; /* Ensure it’s above navbar */
-    display: flex; /* Flexbox to center the content */
-    justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
+    width: 100vw;
+    height: 100vh; /* Viewport height */
+    background: rgba(0, 0, 0, 0.7); /* Dark, semi-transparent overlay */
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease; /* Smooth fade-in animation */
+    backdrop-filter: blur(4px); /* Adds a frosted glass effect to overlay */
 }
 
-
-
-/* Popup Content */
 .popup-content {
-    background: #ffffff; /* White background */
+    background: white;
     max-width: 400px;
-    width: 90%; /* Adjust to fit smaller viewports */
-    text-align: center; /* Center text inside the popup */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Popup shadow */
-    padding: 20px; /* Internal spacing inside popup */
-    position: relative; /* For close button positioning */
-    animation: fadeIn 0.3s ease-in-out; /* Subtle fade-in animation */
+    width: 90%;
+    padding: 30px 20px;
+    border-radius: 15px; /* Smooth rounded corners */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Clean elevated shadow */
+    text-align: center;
+    position: relative;
+    animation: scaleUp 0.3s ease; /* Smooth zoom-in animation */
 }
-
 
 .popup-content h4 {
-    font-size: 1.5rem;
-    color: deepskyblue; /* Header color */
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
 }
 
 .popup-content ul {
+    list-style-type: none; /* Remove bullets */
     padding: 0;
+    margin-top: 15px;
+}
+
+.popup-content li {
+    margin-bottom: 15px; /* Spacing between links */
+    font-size: 1.1rem;
 }
 
 .popup-content a {
-    color: var(--bs-primary); /* Use Bootstrap primary color */
-    text-decoration: none;
+    text-decoration: none; /* Remove hyperlink underline */
+    color: #007bff; /* Bootstrap primary color */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: color 0.3s;
 }
 
 .popup-content a:hover {
-    color: deepskyblue; /* Hover effect color */
+    color: deepskyblue; /* On hover, change to a brighter blue */
 }
 
-/* Icons Styling */
 .icon {
-    font-size: 1.5rem; /* Size for icons */
-    color: deepskyblue; /* Icon color */
-    margin-right: 10px;
+    font-size: 1.5rem; /* Bigger, noticeable icons */
+    margin-right: 8px; /* Space between icon and text */
+    color: deepskyblue; /* Match the hover color */
 }
 
-/* Close Button Styling */
+/* Close button */
 .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    background: none;
     border: none;
-    background: transparent;
-    font-size: 1.5rem;
-    color: #333; /* Default close button color */
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.8rem;
+    color: #333;
     cursor: pointer;
     transition: color 0.3s;
 }
 
 .close-btn:hover {
-    color: red; /* Hover state for close button */
+    color: deepskyblue; /* Subtle color change on hover */
 }
 
-/* Fade In Animation */
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: scale(0.9);
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.9);
+    }
+    to {
         transform: scale(1);
     }
 }
