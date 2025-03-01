@@ -15,7 +15,7 @@ const App = () => {
             <Header/>
             <About/>
             <PortfolioIntegration/> {/* Integrates Projects and TechnicalSkills */}
-            <WorkExperienceTimeline/>
+            {/* <WorkExperienceTimeline/> */}
             <Contact/>
         </div>
     );

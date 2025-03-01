@@ -93,3 +93,17 @@
     transform: translateY(-3px); /* Lift effect */
     color: #000;
 }
+
+/* Spacing between buttons (button group) */
+.button-group a {
+    margin: 0 10px; /* Add spacing between buttons */
+    display: inline-block;
+}
+
+/* Adjust header button responsiveness, if needed */
+@media (max-width: 768px) {
+    .button-group a {
+        margin-top: 10px; /* Add spacing for smaller screens */
+        display: block; /* Stack buttons vertically */
+    }
+}

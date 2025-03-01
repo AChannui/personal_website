@@ -59,7 +59,7 @@ code {
 .navbar .nav-link::after {
     content: ""; /* Pseudo-element for underline */
     position: absolute;
-    bottom: 0px; /* Position below the text */
+    bottom: 0; /* Position below the text */
     left: 0; /* Start from the left */
     width: 0; /* Start with no width */
     height: 2px; /* Thickness of the underline */
@@ -112,6 +112,90 @@ code {
     width: 100%; /* Expand underline on hover */
 }
 
+.contact-popup {
+    position: fixed; /* Anchored to the viewport */
+    top: 0;
+    left: 0;
+    width: 100vw; /* 100% of the viewport width */
+    height: 100vh; /* 100% of the viewport height */
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
+    z-index: 2000; /* Ensure it’s above navbar */
+    display: flex; /* Flexbox to center the content */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+}
+
+
+
+/* Popup Content */
+.popup-content {
+    background: #ffffff; /* White background */
+    max-width: 400px;
+    width: 90%; /* Adjust to fit smaller viewports */
+    text-align: center; /* Center text inside the popup */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Popup shadow */
+    padding: 20px; /* Internal spacing inside popup */
+    position: relative; /* For close button positioning */
+    animation: fadeIn 0.3s ease-in-out; /* Subtle fade-in animation */
+}
+
+
+.popup-content h4 {
+    font-size: 1.5rem;
+    color: deepskyblue; /* Header color */
+}
+
+.popup-content ul {
+    padding: 0;
+}
+
+.popup-content a {
+    color: var(--bs-primary); /* Use Bootstrap primary color */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.popup-content a:hover {
+    color: deepskyblue; /* Hover effect color */
+}
+
+/* Icons Styling */
+.icon {
+    font-size: 1.5rem; /* Size for icons */
+    color: deepskyblue; /* Icon color */
+    margin-right: 10px;
+}
+
+/* Close Button Styling */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    color: #333; /* Default close button color */
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: red; /* Hover state for close button */
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 /* Skill Cards */
 .skill-card {
     border-radius: 10px; /* Rounded edges */
@@ -128,7 +212,7 @@ code {
 .skill-card:hover {
     background-color: deepskyblue; /* Highlight color */
     transform: scale(1.1); /* Enlarge on hover */
-    box-shadow: 0px 8px 25px deepskyblue; /* Glow effect */
+    box-shadow: 0 8px 25px deepskyblue; /* Glow effect */
 }
 
 .skill-card img {

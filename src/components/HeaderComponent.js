@@ -26,13 +26,22 @@ const Header = () => {
                     ))}
                 </h1>
                 <p className="header-subtitle">Embracing every opportunity to learn and grow</p>
-                <a
-                    href="#about"
-                    className="btn btn-light btn-lg header-btn"
-                    onClick={handleLearnMoreClick}
-                >
-                    Learn More
-                </a>
+                <div className="button-group">
+                    <a
+                        href="#about"
+                        className="btn btn-light btn-lg header-btn"
+                        onClick={handleLearnMoreClick}
+                    >
+                        Learn More
+                    </a>
+                    <a
+                        href="/path/to/your-resume.pdf" // Update with the actual path to your resume
+                        className="btn btn-light btn-lg header-btn"
+                        download="My_Resume.pdf" // Sets the default download name for the file
+                    >
+                        Download Resume
+                    </a>
+                </div>
             </div>
         </header>
     );

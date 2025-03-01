@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from "react";
+import {FaEnvelope, FaLinkedin, FaGithub} from "react-icons/fa";
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [showContactPopup, setShowContactPopup] = useState(false);
 
     // Function to handle the scroll event
     const handleScroll = () => {
@@ -18,6 +20,11 @@ const Navbar = () => {
             window.removeEventListener("scroll", handleScroll); // Clean up listener on unmount
         };
     }, []);
+
+    // Function to toggle popup visibility
+    const toggleContactPopup = () => {
+        setShowContactPopup((prev) => !prev);
+    };
 
     const handleLinkClick = (e, targetId) => {
         e.preventDefault(); // Prevent default anchor behavior
@@ -85,6 +92,7 @@ const Navbar = () => {
                                 Projects
                             </a>
                         </li>
+                        {/*
                         <li className="nav-item">
                             <a
                                 className="nav-link"
@@ -94,18 +102,62 @@ const Navbar = () => {
                                 Experience
                             </a>
                         </li>
+                        */}
                         <li className="nav-item">
-                            <a
-                                className="nav-link"
-                                href="#contact"
-                                onClick={(e) => handleLinkClick(e, "#contact")}
+                            <button
+                                className="btn nav-link contact-button"
+                                onClick={toggleContactPopup}
                             >
                                 Contact
-                            </a>
+                            </button>
                         </li>
                     </ul>
                 </div>
             </div>
+
+            {/* Modal Popup */}
+            {showContactPopup && (
+                <div className={"contact-popup d-flex align-items-center justify-content-center"}>
+                    <div className="popup-content p-4 rounded shadow">
+                        <button className="close-btn" onClick={toggleContactPopup}>
+                            &times;
+                        </button>
+                        <h4 className="mb-4">Contact Me</h4>
+                        <ul className="list-unstyled">
+                            <li>
+                                <a
+                                    href="mailto:example@email.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="d-flex align-items-center mb-3"
+                                >
+                                    <FaEnvelope className="icon me-2"/> Email
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://linkedin.com/in/yourprofile"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="d-flex align-items-center mb-3"
+                                >
+                                    <FaLinkedin className="icon me-2"/> LinkedIn
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://github.com/yourprofile"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="d-flex align-items-center mb-3"
+                                >
+                                    <FaGithub className="icon me-2"/> GitHub
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            )}
         </nav>
     );
 };
