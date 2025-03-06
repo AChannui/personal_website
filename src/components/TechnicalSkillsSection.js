@@ -20,7 +20,10 @@ import {
     SiRacket,
     SiVirtualbox,
     SiMacos,
+    SiWireshark,
+    SiTypescript,
 } from "react-icons/si";
+import {FaFile} from "react-icons/fa6";
 import {BsRegex} from "react-icons/bs";
 import {TfiLayoutPlaceholder} from "react-icons/tfi";
 
@@ -36,8 +39,9 @@ const TechnicalSkills = ({hoveredProject, setHoveredSkill}) => {
         {name: "Bash", icon: <SiGnubash size={50}/>},
         {name: "Java", icon: <FaJava size={50}/>},
         {name: "Racket", icon: <SiRacket size={50}/>},
-        {name: "Assembly (MIPS)", icon: <TfiLayoutPlaceholder size={50}/>},
+        {name: "Assembly (MIPS)", icon: <FaFile size={50}/>},
         {name: "HTML", icon: <FaHtml5 size={50}/>},
+        {name: "TypeScript", icon: <SiTypescript size={50}/>},
     ];
 
     const otherSkills = [
@@ -51,6 +55,7 @@ const TechnicalSkills = ({hoveredProject, setHoveredSkill}) => {
         {name: "Git", icon: <FaGitAlt size={50}/>},
         {name: "Docker", icon: <FaDocker size={50}/>},
         {name: "VirtualBox", icon: <SiVirtualbox size={50}/>},
+        {name: "Wireshark", icon: <SiWireshark size={50}/>},
     ];
 
     const isRelevantSkill = (skill) =>

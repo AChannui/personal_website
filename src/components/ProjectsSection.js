@@ -7,11 +7,11 @@ const Projects = ({setHoveredProject, hoveredSkill}) => {
 
     const projects = [
         {
-            title: "Project 1",
+            title: "TI Wi-SUN FAN DHCP Service Adaptation for IoT networks",
             description: "A more detailed description for Project 1.",
             img: "https://via.placeholder.com/300",
-            technologies: ["Python", "SQL", "C++", "Windows Development"],
-            link: "https://github.com/project-1",
+            technologies: ["C++", "Docker", "Vim", "Fundamental TCP/IP", "Bash", "Git", "VirtualBox", "Wireshark"],
+            link: "https://github.com/AChannui/TI-wi-sun-project",
         },
         {
             title: "Project 2",

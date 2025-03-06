@@ -172,11 +172,12 @@ code {
     color: deepskyblue; /* On hover, change to a brighter blue */
 }
 
-.icon {
+.popup-icon {
     font-size: 1.5rem; /* Bigger, noticeable icons */
     margin-right: 8px; /* Space between icon and text */
     color: deepskyblue; /* Match the hover color */
 }
+
 
 /* Close button */
 .close-btn {

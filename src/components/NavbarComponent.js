@@ -117,41 +117,24 @@ const Navbar = () => {
 
             {/* Modal Popup */}
             {showContactPopup && (
-                <div className={"contact-popup d-flex align-items-center justify-content-center"}>
-                    <div className="popup-content p-4 rounded shadow">
-                        <button className="close-btn" onClick={toggleContactPopup}>
-                            &times;
-                        </button>
-                        <h4 className="mb-4">Contact Me</h4>
-                        <ul className="list-unstyled">
+                <div className="contact-popup">
+                    <div className="popup-content">
+                        <button className="close-btn" onClick={toggleContactPopup}>&times;</button>
+                        <h4>Contact Me</h4>
+                        <ul>
                             <li>
-                                <a
-                                    href="mailto:example@email.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="d-flex align-items-center mb-3"
-                                >
-                                    <FaEnvelope className="icon me-2"/> Email
+                                <a href="mailto:example@email.com">
+                                    <FaEnvelope className="popup-icon"/> Email
                                 </a>
                             </li>
                             <li>
-                                <a
-                                    href="https://linkedin.com/in/yourprofile"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="d-flex align-items-center mb-3"
-                                >
-                                    <FaLinkedin className="icon me-2"/> LinkedIn
+                                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+                                    <FaLinkedin className="popup-icon"/> LinkedIn
                                 </a>
                             </li>
                             <li>
-                                <a
-                                    href="https://github.com/yourprofile"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="d-flex align-items-center mb-3"
-                                >
-                                    <FaGithub className="icon me-2"/> GitHub
+                                <a href="https://github.com/yourprofile" target="_blank" rel="noopener noreferrer">
+                                    <FaGithub className="popup-icon"/> GitHub
                                 </a>
                             </li>
                         </ul>
